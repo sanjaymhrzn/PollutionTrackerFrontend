@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box,useTheme } from "@mui/material";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -57,7 +57,7 @@ const Historical = ({ data }) => {
           },
           title: {
             display: true,
-            text: "Historical Air Quality Index",
+            text: "Historical Quality Index",
             color: colors.grey[100], // Title color
           },
         },
@@ -91,15 +91,16 @@ const Historical = ({ data }) => {
       
 
     return (
-        // <div className="historical-chart">
-        //     <h2>Historical Data</h2>
-        //     <Line data={chartData} options={options} />
-        // </div>
     <>
         <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+        //   gridColumn="span 8"
+        //   gridRow="span 2"
+        //   backgroundColor={colors.primary[400]}
+        sx={{
+            gridColumn: { xs: "span 12", sm: "span 12", md: "span 8" },
+            gridRow: { xs: "span 2", sm: "span 2", md: "span 2" },
+            backgroundColor: colors.primary[400],
+          }}
         >
           <Box height="100%" width="100%" m="-1 0 0 0">
           <Line data={chartData} options={options} />

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/api/combined_data/";
+const BASE_URL = "https://sanjaymhrzn.pythonanywhere.com/api/combined_data/";
 
 export const fetchData = async (startDate,endDate) => {
     try {

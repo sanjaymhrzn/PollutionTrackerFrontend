@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { ProSidebarProvider, Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import React, { useState,useEffect } from "react";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Box, IconButton, Typography, useTheme,useMediaQuery} from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -33,12 +32,19 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const SidebarComponent = () => {
+export const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+//   const [isCollapsed, setIsCollapsed] = useState(false);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"))
   const [selected, setSelected] = useState("Dashboard");
-
+  useEffect(() => {
+    if (isSmallScreen) {
+      setIsCollapsed(true); // Collapse the sidebar on small screens
+    } else {
+      setIsCollapsed(false); // Expand the sidebar on larger screens
+    }
+  }, [isSmallScreen,setIsCollapsed]);
   return (
     <Box
       sx={{
@@ -165,13 +171,13 @@ const SidebarComponent = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="FAQ Page"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h6"
@@ -222,12 +228,3 @@ const SidebarComponent = () => {
   );
 };
 
-const App = () => {
-  return (
-    <ProSidebarProvider>
-      <SidebarComponent />
-    </ProSidebarProvider>
-  );
-};
-
-export default App;

@@ -2,12 +2,10 @@
 import React,{useState} from 'react'
 import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import { Box, Typography } from "@mui/material";
 import backgroundImage from '../assets/sunset.jpg';
 const Weather = ({data}) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+
     const [clickCount, setClickCount] = useState(0);
 
     const handleClick = () => {
@@ -36,10 +34,12 @@ const Weather = ({data}) => {
     <>
 <Box
   onClick={handleClick}
-  gridColumn="span 4"
-  gridRow="span 2"
+  // gridColumn="span 4"
+  // gridRow="span 2"
   sx={{
-    backgroundImage: `url(${backgroundImage})`, // Replace 'your-image-url.jpg' with the actual image URL
+    backgroundImage: `url(${backgroundImage})`, 
+    gridColumn: { xs: "span 12", sm: "span 12", md: "span 4" },
+    gridRow: { xs: "span 1", sm: "span 2", md: "span 2" },
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     padding: '30px',

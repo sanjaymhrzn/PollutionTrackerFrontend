@@ -2,7 +2,7 @@
 import React,{useState} from 'react'
 import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../theme";
 
 const WeatherStatus = ({data}) => {
@@ -35,44 +35,6 @@ const WeatherStatus = ({data}) => {
 
   return (
     <>
-      {/* <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          overflow="hidden"
-          onClick={handleClick}
-        >
-
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                 {data.main?<h1>{data.main.temp.toFixed()}°F</h1>:null}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                {data.main?<h1>{data.main.temp.toFixed()}°F</h1>:null}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{data.main?<h1>{data.main.temp.toFixed()}°F</h1>:null}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                {data.main?<h1>{data.main.temp.toFixed()}°F</h1>:null}
-              </Box>
-            </Box>
-            
-        </Box> */}
 <Box
   gridColumn="span 4"
   gridRow="span 2"

@@ -1,16 +1,13 @@
 import React,{useEffect} from 'react';
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import ScienceIcon from '@mui/icons-material/Science';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { tokens } from "../theme";
-import Header from "./Header";
 import StatBox from "./StatBox";
 import AirIcon from '@mui/icons-material/Air';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
-
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 
 const LiveData = ({data}) => {
   const theme = useTheme();
@@ -34,7 +31,7 @@ const LiveData = ({data}) => {
   return (
     <>
             <Box
-            gridColumn="span 3"
+            gridColumn={{ xs: "span 12", sm: "span 6", md: "span 3" }}
             backgroundColor={colors.primary[400]}
             display="flex"
             alignItems="center"
@@ -53,7 +50,7 @@ const LiveData = ({data}) => {
             />
             </Box>
             <Box
-            gridColumn="span 3"
+            gridColumn={{ xs: "span 12", sm: "span 6", md: "span 3" }}
             backgroundColor={colors.primary[400]}
             display="flex"
             alignItems="center"
@@ -72,7 +69,7 @@ const LiveData = ({data}) => {
             />
             </Box>
             <Box
-            gridColumn="span 3"
+            gridColumn={{ xs: "span 12", sm: "span 6", md: "span 3" }}
             backgroundColor={colors.primary[400]}
             display="flex"
             alignItems="center"
@@ -91,7 +88,7 @@ const LiveData = ({data}) => {
             />
             </Box>
             <Box
-            gridColumn="span 3"
+            gridColumn={{ xs: "span 12", sm: "span 6", md: "span 3" }}
             backgroundColor={colors.primary[400]}
             display="flex"
             alignItems="center"

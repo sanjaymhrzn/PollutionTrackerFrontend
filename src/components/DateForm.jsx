@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, useTheme,useMediaQuery } from "@mui/material";
+import { toast,Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { tokens } from "../theme";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday"; 
 const DateForm = ({ onSumbitArg }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -11,7 +12,39 @@ const DateForm = ({ onSumbitArg }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log()
+    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+
+    // Validation: Check if dates are not greater than today
+    if (startDate > today || endDate > today) {
+      toast.warn("Start date and End date cannot be greater than today's date.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+      return;
+    }
+
+    // Validation: Check if end date is greater than start date
+    if (endDate <= startDate) {
+      toast.warn("Start date cannot be greater than end date.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+      return;
+    }
     if (startDate && endDate) {
       onSumbitArg(startDate, endDate);
     } else {

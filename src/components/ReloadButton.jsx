@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaRedo } from "react-icons/fa";
 import { Box, Button, useTheme } from "@mui/material";
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { tokens } from "../theme";

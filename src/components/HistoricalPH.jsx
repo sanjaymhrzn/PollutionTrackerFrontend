@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -23,7 +23,6 @@ const HistoricalPH = ({ data }) => {
     console.log(data)
     const labels = data.map((item) => item.date);
     const PhValue = data.map((item) => item.ph_level);
-    const Temperature = data.map((item)=> item.temperature);
     const chartData = {
         labels,
         datasets: [
@@ -57,7 +56,7 @@ const HistoricalPH = ({ data }) => {
           },
           title: {
             display: true,
-            text: "Historical Air Quality Index",
+            text: "Historical PH Value",
             color: colors.primary[100], // Title color
           },
         },
@@ -90,10 +89,7 @@ const HistoricalPH = ({ data }) => {
       };
 
     return (
-        // <div className="historical-chart">
-        //     <h2>Historical Data</h2>
-        //     <Line data={chartData} options={options} />
-        // </div>
+
     <>
         <Box
           gridColumn="span 8"

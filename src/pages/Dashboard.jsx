@@ -4,21 +4,14 @@ import DateForm from '../components/DateForm';
 import {fetchData} from '../services/api'
 import Weather from '../components/Weather';
 import ReloadButton from '../components/ReloadButton';
-import { PacmanLoader } from "react-spinners";
+import { BeatLoader  } from "react-spinners";
 import LiveData from '../components/LiveData';
-import { Box, Button, IconButton, useMediaQuery, useTheme } from "@mui/material";
-import { tokens } from "../theme";
-// import { mockTransactions } from "../../data/mockData";
+import { Box,useMediaQuery, useTheme } from "@mui/material";
 import Header from "../components/Header";
-// import LineChart from "../../components/LineChart";
-// import GeographyChart from "../../components/GeographyChart";
-// import BarChart from "./components/BarChart";
-// import ProgressCircle from "./components/ProgressCircle";
 import WeatherStatus from '../components/WeatherStatus';
 import HistoricalPH from '../components/HistoricalPH';
 const Dashboard = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const [loading,setLoading] = useState(true);
     const [historicalData,setHistoricalData] = useState([]);
@@ -82,10 +75,10 @@ const Dashboard = () => {
           }}
         >
 
-          <PacmanLoader color="rgba(75, 192, 192, 1)" size={50} />
-          <p style={{ justifyContent: "center", marginTop: "20px", marginLeft: "50px" ,fontSize: "28px", color: "rgba(75, 192, 192, 1)" }}>
+          <BeatLoader  color="rgba(75, 192, 192, 1)" size={20} />
+          {/* <p style={{ justifyContent: "center", marginTop: "20px", marginLeft: "50px" ,fontSize: "28px", color: "rgba(75, 192, 192, 1)" }}>
             LOADING .....
-          </p>
+          </p> */}
         </div>
       )}
         {!loading && (
@@ -118,10 +111,7 @@ const Dashboard = () => {
       <Weather data={weatherData}/> 
       <HistoricalPH data={historicalData}/>
       <WeatherStatus data={weatherData}/>
-      
       </Box>
-
-
     </Box>
 
             </>
