@@ -14,7 +14,7 @@ const LiveData = ({data}) => {
   const colors = tokens(theme.palette.mode);
 
     useEffect(() => {
-        if (data.water_quality_index > 50) {
+        if (data.water_quality_index < 50) {
             toast('Warning! The fish in Phewa Lake are starting to complain 🐟.', {
                 position: "top-center",
                 autoClose: 5000,
