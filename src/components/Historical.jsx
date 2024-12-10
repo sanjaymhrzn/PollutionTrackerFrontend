@@ -79,7 +79,7 @@ const Historical = ({ data }) => {
             },
             grid: {
               color: colors.grey[700], // Y-axis grid line color
-              drawBorder: true, // Draw border for Y-axis
+              drawBorder: true, // Border for Y-axis
             },
             title: {
               display: false,
@@ -100,6 +100,8 @@ const Historical = ({ data }) => {
             gridColumn: { xs: "span 12", sm: "span 12", md: "span 8" },
             gridRow: { xs: "span 2", sm: "span 2", md: "span 2" },
             backgroundColor: colors.primary[400],
+            width: "100%", 
+            height: { xs: "300px", sm: "300px", md: "300px" }, 
           }}
         >
           <Box height="100%" width="100%" m="-1 0 0 0">

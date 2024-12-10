@@ -40,9 +40,9 @@ export const SidebarComponent = ({ isCollapsed, setIsCollapsed }) => {
   const [selected, setSelected] = useState("Dashboard");
   useEffect(() => {
     if (isSmallScreen) {
-      setIsCollapsed(true); // Collapse the sidebar on small screens
+      setIsCollapsed(true); 
     } else {
-      setIsCollapsed(false); // Expand the sidebar on larger screens
+      setIsCollapsed(false); 
     }
   }, [isSmallScreen,setIsCollapsed]);
   return (

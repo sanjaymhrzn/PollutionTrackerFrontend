@@ -43,7 +43,7 @@ const Weather = ({data}) => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     padding: '30px',
-    position: 'relative', // Enable positioning of inner elements
+    position: 'relative', // Positioning of inner elements
   }}
 >
   {/* Top Left Section */}
@@ -52,13 +52,13 @@ const Weather = ({data}) => {
       Pokhara
     </Typography>
 
-    <Typography variant="h5">12°F</Typography>
+    <Typography variant="h5">{data.main ? `${data.main.temp.toFixed()}°F` : "--"}</Typography>
   </Box>
 
   {/* Top Right Section */}
   <Box sx={{ position: 'absolute', top: '10px', right: '10px' }}>
     <Typography variant="h5" fontWeight="600">
-      Cloudy
+      {data.weather ? `${data.weather[0].main}` : "--"}
     </Typography>
     <Typography variant="body">
       {new Date().toLocaleTimeString()} {/* Displays current time */}

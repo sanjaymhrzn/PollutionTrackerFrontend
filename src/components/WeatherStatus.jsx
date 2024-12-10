@@ -8,7 +8,7 @@ import { tokens } from "../theme";
 const WeatherStatus = ({data}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-    console.log(data.main.temp)
+    // console.log(data.main.temp)
     const [clickCount, setClickCount] = useState(0);
 
     const handleClick = () => {
@@ -36,8 +36,11 @@ const WeatherStatus = ({data}) => {
   return (
     <>
 <Box
-  gridColumn="span 4"
-  gridRow="span 2"
+ sx={{ 
+  gridColumn: { xs: "span 12", sm: "span 12", md: "span 4" },
+  gridRow: { xs: "span 1", sm: "span 2", md: "span 2" },}}
+  // gridColumn="span 4"
+  // gridRow="span 2"
   backgroundColor={colors.primary[400]}
   overflow="hidden"
   onClick={handleClick}
@@ -56,7 +59,7 @@ const WeatherStatus = ({data}) => {
     flexDirection="column"
     alignItems="center"
     justifyContent="center"
-    flex="1 1 45%" // Flexbox to make it responsive
+    flex="1 1 45%"
   >
     <Typography color={colors.grey[100]} variant="h6" fontWeight="600">
       Feels Like
@@ -94,7 +97,7 @@ const WeatherStatus = ({data}) => {
     flexDirection="column"
     alignItems="center"
     justifyContent="center"
-    flex="1 1 45%" // Flexbox to make it responsive
+    flex="1 1 45%" 
   >
     <Typography color={colors.grey[100]} variant="h6" fontWeight="600">
       Wind

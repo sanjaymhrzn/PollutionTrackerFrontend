@@ -78,7 +78,7 @@ const HistoricalPH = ({ data }) => {
             },
             grid: {
               color: colors.grey[700], // Y-axis grid line color
-              drawBorder: true, // Draw border for Y-axis
+              drawBorder: true, 
             },
             title: {
               display: false,
@@ -92,11 +92,18 @@ const HistoricalPH = ({ data }) => {
 
     <>
         <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          // gridColumn="span 8"
+          // gridRow="span 2"
+          // backgroundColor={colors.primary[400]}
+          sx={{
+            gridColumn: { xs: "span 12", sm: "span 12", md: "span 8" },
+            gridRow: { xs: "span 2", sm: "span 2", md: "span 2" },
+            backgroundColor: colors.primary[400],
+            width: "100%", 
+            height: { xs: "300px", sm: "300px", md: "300px" }, 
+          }}
         >
-          <Box height="300px" m="-1 0 0 0">
+          <Box height="100%" width="100%" m="-1 0 0 0">
           <Line data={chartData} options={options} />
           </Box>
         </Box>

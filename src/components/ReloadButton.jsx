@@ -23,10 +23,11 @@ const ReloadButton = () => {
               color: colors.grey[100],
               fontSize: "24px",
               fontWeight: "bold",
-              padding: "px",
+              // padding: "1 px",
+              marginBottom:"1 px",
             }}
           >
-            <RefreshIcon sx={{ mr: "10px" }} />
+            <RefreshIcon sx={{ m: "5px" }} />
           </Button>
         </Box>
     </div>

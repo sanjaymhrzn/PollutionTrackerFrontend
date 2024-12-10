@@ -13,6 +13,7 @@ import HistoricalPH from '../components/HistoricalPH';
 const Dashboard = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
     const [loading,setLoading] = useState(true);
     const [historicalData,setHistoricalData] = useState([]);
     const [weatherData,setWeatherData]=useState({})
@@ -87,10 +88,10 @@ const Dashboard = () => {
           {/* HEADER */}
           <Box
       display="flex"
-      flexDirection={isSmallScreen ? "column" : "row"} // Stack elements in column on small screens
+      flexDirection={isSmallScreen || isMediumScreen? "column" : "row"} 
       justifyContent="space-between"
-      alignItems={isSmallScreen ? "flex-start" : "center"} // Align items to the left on small screens
-      gap={isSmallScreen ? "10px" : "0"} // Add space between items on small screens
+      alignItems={isSmallScreen  || isMediumScreen ? "flex-start" : "center"} 
+      gap={isSmallScreen ? "10px" : "0"} 
     >
             <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
             <DateForm onSumbitArg={handleSubmit}/>
@@ -99,8 +100,8 @@ const Dashboard = () => {
           {/* GRID & CHARTS */}
           {/* ROW1 */}
           <Box
-      display={isSmallScreen ? "flex" : "grid"} // Switch between grid and flex
-      gridTemplateColumns={isSmallScreen ? "none" : "repeat(12, 1fr)"} // Apply grid template only for larger screens
+      display={isSmallScreen ? "flex" : "grid"}
+      gridTemplateColumns={isSmallScreen ? "none" : "repeat(12, 1fr)"}
       gridAutoRows="140px"
       gap="20px"
       flexDirection={isSmallScreen ? "column" : "initial"} // Change to column on small screens

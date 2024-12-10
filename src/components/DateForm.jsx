@@ -8,11 +8,11 @@ const DateForm = ({ onSumbitArg }) => {
   const [endDate, setEndDate] = useState("");
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // Adjust the breakpoint as needed
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); 
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split("T")[0]; 
 
     // Validation: Check if dates are not greater than today
     if (startDate > today || endDate > today) {
@@ -73,7 +73,7 @@ const DateForm = ({ onSumbitArg }) => {
         sx={{
           "& .MuiOutlinedInput-root": {
             backgroundColor: colors.primary[400], // Input field background
-            borderRadius: "4px", // Optional: Rounded corners
+            borderRadius: "4px", 
             "& fieldset": {
               borderColor: colors.primary[100], // Default border color
             },
@@ -161,7 +161,7 @@ const DateForm = ({ onSumbitArg }) => {
         fontSize: "14px",
         fontWeight: "bold",
         padding: "10px 20px",
-      }} // Matches the height of the TextFields
+      }} 
     >
       Fetch Data
     </Button>
